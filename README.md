@@ -9,12 +9,15 @@ This currently only supports the Python 3.7 runtime, but should be easy to adapt
 
 ```
 # Build the Docker image, which creates the zip file
-docker build -t weasyprint
+docker build -t weasyprint .
 
 # Create an instance of the image (without actually running it)
 # this is just so we can copy the zip file out
-docker create --name weasyprint weasyprint
-docker cp weasyprint:/opt/weasyprint_lambda_layer.zip .
+docker run -it weasyprint /bin/bash
+CTRL P  + CTRL Q  to detach
+docker ps 
+# container id
+docker cp CONTAINERID:/opt/lib/weasyprint_lambda_layer.zip .
 docker rm weasyprint
 ```
 
