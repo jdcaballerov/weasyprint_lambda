@@ -23,6 +23,10 @@ docker rm weasyprint
 
 The `weasyprint_lambda_layer.zip` file can now be uploaded as an AWS Lambda layer
 
+```
+aws lambda publish-layer-version --layer-name weasyprint --region us-east-1 --compatible-runtimes python3.7 --zip-file fileb://weasyprint_lambda_layer.zip
+```
+
 # Using the Library
 The `weasyprint` pip package still needs to be included in the deployed package; it is not included in the zip file. Only the native (binary) libraries are included.
 
